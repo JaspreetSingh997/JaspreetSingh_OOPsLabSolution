@@ -4,21 +4,7 @@ import CredentialGeneratorProject.model.Employee;
 
 import java.util.Random;
 
-public class Credentials {
-    // private String generateEmailAddress(Employee employee, String department) {
-    //     return employee.getFirstName().toLowerCase() + employee.getLastName().toLowerCase() + "@" + department + "." + "abc.com";
-    // }
-
-    // private String generatePassword() {
-    //     Random random = new Random();
-
-    //     String password = "";
-    //     for (int i = 0; i <= 7; i++) {
-    //         password += (char) random.nextInt(32, 123);
-    //     }
-    //     return password;
-    // }
-    
+public class Credentials {    
     private String generatePassword() {
         int letters = 8;
         String capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -28,15 +14,12 @@ public class Credentials {
         String combinedChars = capitalLetters + lowerLetters + splChars + numbers;
         Random random = new Random();
         StringBuffer password = new StringBuffer(letters);
-        //random.setSeed(123456789);
         
         for(int i = 0; i <= 6; i++)
         {
             password.insert(i, combinedChars.charAt(random.nextInt(combinedChars.length()))) ; 
         }
         password.insert(random.nextInt(password.length()), splChars.charAt(random.nextInt(splChars.length())));
-
-        
 
         return password.toString();
     }
